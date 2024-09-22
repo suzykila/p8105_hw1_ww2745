@@ -4,4 +4,33 @@ output: github_document
 date: "2024-09-21"
 ---
 
+Here are solutions for HW1.
 
+```{r setup, include = FALSE}
+library(palmerpenguins)
+library(ggplot2)
+```
+
+# Problem 1
+
+First, we load the penguins data set and do a descriptive analysis.
+
+```{r load_dataset}
+data("penguins", package = "palmerpenguins")
+mean_fl=mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+
+This is a dataset about penguins. It includes information for following features: `r paste(colnames(penguins), collapse = ', ')`.
+For the size of the dataset, it has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+The mean of the flipper length is `r round(mean_fl, digits = 2)` mm.
+
+Then, we make a scatterplot of `flipper_length_mm `(y) vs `bill_length_mm`(x).
+
+```{r yx_scatter}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave(filename = "scatterplot_p1.png")
+```
+
+
+
+# Problem 2
