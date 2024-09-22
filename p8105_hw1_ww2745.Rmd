@@ -9,6 +9,7 @@ Here are solutions for HW1.
 ```{r setup, include = FALSE}
 library(palmerpenguins)
 library(ggplot2)
+library(tidyverse)
 ```
 
 # Problem 1
@@ -31,6 +32,22 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)
 ggsave(filename = "scatterplot_p1.png")
 ```
 
-
-
 # Problem 2
+Create a data frame comprised of:
+
+a random sample of size 10 from a standard Normal distribution
+a logical vector indicating whether elements of the sample are greater than 0
+a character vector of length 10
+a factor vector of length 10, with 3 different factor “levels”
+
+```{r create_df}
+set.seed(123)
+p2_df <- tibble(
+  random_sample = rnorm(10),                        
+  greater_than_zero = random_sample > 0,          
+  character_vector = sample(letters[1:6], 10, replace = TRUE),  
+  factor_vector = factor(sample(c("Level 1", "Level 2", "Level 3"), 10, replace = TRUE))  
+)
+
+```
+
