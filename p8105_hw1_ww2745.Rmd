@@ -1,0 +1,7 @@
+---
+title: "p8105_hw1_ww2745"
+output: github_document
+date: "2024-09-21"
+---
+
+
